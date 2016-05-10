@@ -10,17 +10,17 @@
  * file that was distributed with this source code.
  */
 
-namespace BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB\Types;
+namespace BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Types;
 
-use BenGor\User\Domain\Model\UserId;
+use BenGorUser\User\Domain\Model\UserGuestId;
 use Doctrine\ODM\MongoDB\Types\IdType;
 
 /**
- * Doctrine ODM MongoDB user id custom type class.
+ * Doctrine ODM MongoDB user guest id custom type class.
  *
  * @author Beñat Espiña <benatespina@gmail.com>
  */
-class UserIdType extends IdType
+class UserGuestIdType extends IdType
 {
     /**
      * {@inheritdoc}
@@ -32,9 +32,7 @@ class UserIdType extends IdType
         }
         if (!$value instanceof \MongoId) {
             try {
-                $value = $value instanceof UserId
-                    ? new \MongoId($value->id())
-                    : new \MongoId($value);
+                $value = new \MongoId($value->id());
             } catch (\MongoException $e) {
                 $value = new \MongoId();
             }
@@ -48,7 +46,7 @@ class UserIdType extends IdType
      */
     public function convertToPHPValue($value)
     {
-        return $value instanceof \MongoId ? new UserId((string) $value) : new UserId($value);
+        return $value instanceof \MongoId ? new UserGuestId((string) $value) : new UserGuestId($value);
     }
 
     /**
@@ -56,7 +54,7 @@ class UserIdType extends IdType
      */
     public function closureToMongo()
     {
-        return '$return = $value instanceof UserId ? new MongoId($value->id()) : new \MongoId($value);';
+        return '$return = new MongoId($value->id());';
     }
 
     /**
@@ -65,7 +63,7 @@ class UserIdType extends IdType
     public function closureToPHP()
     {
         return '$return = $value instanceof \MongoId ' .
-        '? new \BenGor\User\Domain\Model\UserId((string)$value) ' .
-        ': new \BenGor\User\Domain\Model\UserId($value);';
+        '? new \BenGor\User\Domain\Model\UserGuestId((string)$value) ' .
+        ': new \BenGor\User\Domain\Model\UserGuestId($value);';
     }
 }

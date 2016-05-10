@@ -10,24 +10,24 @@
  * file that was distributed with this source code.
  */
 
-namespace BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB\Types;
+namespace BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Types;
 
-use BenGor\User\Domain\Model\UserToken;
-use Doctrine\ODM\MongoDB\Types\StringType;
+use BenGorUser\User\Domain\Model\UserPassword;
+use Doctrine\ODM\MongoDB\Types\Type;
 
 /**
- * Doctrine ODM MongoDB user email custom type class.
+ * Doctrine ODM MongoDB user password custom type class.
  *
  * @author Beñat Espiña <benatespina@gmail.com>
  */
-class UserTokenType extends StringType
+class UserPasswordType extends Type
 {
     /**
      * {@inheritdoc}
      */
     public function convertToDatabaseValue($value)
     {
-        return $value->token();
+        return json_encode([$value->encodedPassword(), $value->salt()]);
     }
 
     /**
@@ -35,7 +35,9 @@ class UserTokenType extends StringType
      */
     public function convertToPHPValue($value)
     {
-        return new UserToken($value);
+        list($encodedPassword, $salt) = json_decode($value);
+
+        return UserPassword::fromEncoded($encodedPassword, $salt);
     }
 
     /**
@@ -43,7 +45,7 @@ class UserTokenType extends StringType
      */
     public function closureToMongo()
     {
-        return '$return = $value->token();';
+        return '$return = json_encode([$value->encodedPassword(), $value->salt()]);';
     }
 
     /**
@@ -51,6 +53,7 @@ class UserTokenType extends StringType
      */
     public function closureToPHP()
     {
-        return '$return = new \BenGor\User\Domain\Model\UserToken($value);';
+        return 'list($encodedPassword, $salt) = json_decode($value);' .
+        '$return = \BenGor\User\Domain\Model\UserPassword::fromEncoded($encodedPassword, $salt);';
     }
 }

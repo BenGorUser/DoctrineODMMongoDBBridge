@@ -8,7 +8,7 @@
 
 BenGor\User\Domain\Model\User:
     type: document
-    repositoryClass: BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB\DoctrineODMMongoDBUserRepository
+    repositoryClass: BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\DoctrineODMMongoDBUserRepository
     collection: user
     fields:
         id:

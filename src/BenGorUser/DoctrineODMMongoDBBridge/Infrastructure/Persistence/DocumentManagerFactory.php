@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB;
+namespace BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence;
 
-use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB\Types\UserEmailType;
-use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB\Types\UserGuestIdType;
-use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB\Types\UserIdType;
-use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB\Types\UserPasswordType;
-use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB\Types\UserRolesType;
-use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB\Types\UserTokenType;
+use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Types\UserEmailType;
+use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Types\UserGuestIdType;
+use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Types\UserIdType;
+use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Types\UserPasswordType;
+use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Types\UserRolesType;
+use BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Types\UserTokenType;
 use Doctrine\ODM\MongoDB\Configuration;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\Mapping\Driver\YamlDriver;

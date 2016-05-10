@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB;
+namespace BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence;
 
-use BenGor\User\Domain\Model\User;
-use BenGor\User\Domain\Model\UserEmail;
-use BenGor\User\Domain\Model\UserId;
-use BenGor\User\Domain\Model\UserRepository;
-use BenGor\User\Domain\Model\UserToken;
+use BenGorUser\User\Domain\Model\User;
+use BenGorUser\User\Domain\Model\UserEmail;
+use BenGorUser\User\Domain\Model\UserId;
+use BenGorUser\User\Domain\Model\UserRepository;
+use BenGorUser\User\Domain\Model\UserToken;
 use Doctrine\ODM\MongoDB\DocumentRepository;
 
 /**

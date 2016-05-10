@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Doctrine\ODM\MongoDB\Types;
+namespace BenGorUser\DoctrineODMMongoDBBridge\Infrastructure\Persistence\Types;
 
-use BenGor\User\Domain\Model\UserEmail;
+use BenGorUser\User\Domain\Model\UserEmail;
 use Doctrine\ODM\MongoDB\Types\StringType;
 
 /**
