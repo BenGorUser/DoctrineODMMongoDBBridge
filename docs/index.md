@@ -1,1 +1,0 @@
-# DoctrineODMMongoDBBridge documentation

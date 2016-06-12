@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BenGorUser library.
+ * This file is part of the BenGorUser package.
  *
  * (c) Beñat Espiña <benatespina@gmail.com>
  * (c) Gorka Laucirica <gorka.lauzirika@gmail.com>
@@ -54,6 +54,14 @@ final class DoctrineODMMongoDBUserRepository extends DocumentRepository implemen
     /**
      * {@inheritdoc}
      */
+    public function userOfInvitationToken(UserToken $anInvitationToken)
+    {
+        return $this->findOneBy(['invitationToken' => $anInvitationToken->token()]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function userOfRememberPasswordToken(UserToken $aRememberPasswordToken)
     {
         return $this->findOneBy(['rememberPasswordToken' => $aRememberPasswordToken->token()]);
@@ -86,13 +94,5 @@ final class DoctrineODMMongoDBUserRepository extends DocumentRepository implemen
             ->count()
             ->getQuery()
             ->execute();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function nextIdentity()
-    {
-        return new UserId();
     }
 }
