@@ -54,6 +54,6 @@ class UserPasswordType extends Type
     public function closureToPHP()
     {
         return 'list($encodedPassword, $salt) = json_decode($value);' .
-        '$return = \BenGor\User\Domain\Model\UserPassword::fromEncoded($encodedPassword, $salt);';
+        '$return = \BenGorUser\User\Domain\Model\UserPassword::fromEncoded($encodedPassword, $salt);';
     }
 }

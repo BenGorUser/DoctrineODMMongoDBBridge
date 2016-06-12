@@ -51,6 +51,6 @@ class UserEmailType extends StringType
      */
     public function closureToPHP()
     {
-        return '$return = new \BenGor\User\Domain\Model\UserEmail($value);';
+        return '$return = new \BenGorUser\User\Domain\Model\UserEmail($value);';
     }
 }

@@ -60,7 +60,7 @@ class UserRolesType extends Type
      */
     public function closureToPHP()
     {
-        return '$userRoles = array_map(function ($role) {return new \BenGor\User\Domain\Model\UserRole($role);},' .
+        return '$userRoles = array_map(function ($role) {return new \BenGorUser\User\Domain\Model\UserRole($role);},' .
         'json_decode($value));$return = $userRoles;';
     }
 }

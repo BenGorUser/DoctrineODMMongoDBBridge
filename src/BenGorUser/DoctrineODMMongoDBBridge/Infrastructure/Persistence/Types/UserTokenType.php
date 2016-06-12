@@ -51,6 +51,6 @@ class UserTokenType extends StringType
      */
     public function closureToPHP()
     {
-        return '$return = new \BenGor\User\Domain\Model\UserToken($value);';
+        return '$return = new \BenGorUser\User\Domain\Model\UserToken($value);';
     }
 }

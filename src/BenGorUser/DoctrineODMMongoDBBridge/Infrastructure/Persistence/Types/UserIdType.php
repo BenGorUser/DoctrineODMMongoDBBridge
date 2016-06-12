@@ -65,7 +65,7 @@ class UserIdType extends IdType
     public function closureToPHP()
     {
         return '$return = $value instanceof \MongoId ' .
-        '? new \BenGor\User\Domain\Model\UserId((string)$value) ' .
-        ': new \BenGor\User\Domain\Model\UserId($value);';
+        '? new \BenGorUser\User\Domain\Model\UserId((string)$value) ' .
+        ': new \BenGorUser\User\Domain\Model\UserId($value);';
     }
 }
