@@ -19,6 +19,8 @@ php:
 env:
     - COMPOSER_OPTIONS="--prefer-source"
 
+before_install: echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
 install:
     - composer update --no-interaction ${COMPOSER_OPTIONS}
 

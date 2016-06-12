@@ -3,9 +3,9 @@
 
 [![Build Status](https://travis-ci.org/BenGorUser/DoctrineODMMongoDBBridge.svg?branch=master)](https://travis-ci.org/BenGorUser/DoctrineODMMongoDBBridge)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/BenGorUser/DoctrineODMMongoDBBridge/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/BenGorUser/DoctrineODMMongoDBBridge/?branch=master)
-[![Total Downloads](https://poser.pugx.org/bengoruser/doctrine-odm-mongodb-bridge/downloads)](https://packagist.org/packages/bengoruser/doctrine-odm-mongodb-bridge/)
-[![Latest Stable Version](https://poser.pugx.org/bengoruser/doctrine-odm-mongodb-bridge/v/stable.svg)](https://packagist.org/packages/bengoruser/doctrine-odm-mongodb-bridge/)
-[![Latest Unstable Version](https://poser.pugx.org/bengoruser/doctrine-odm-mongodb-bridge/v/unstable.svg)](https://packagist.org/packages/bengoruser/doctrine-odm-mongodb-bridge/)
+[![Total Downloads](https://poser.pugx.org/bengor-user/doctrine-odm-mongodb-bridge/downloads)](https://packagist.org/packages/bengor-user/doctrine-odm-mongodb-bridge/)
+[![Latest Stable Version](https://poser.pugx.org/bengor-user/doctrine-odm-mongodb-bridge/v/stable.svg)](https://packagist.org/packages/bengor-user/doctrine-odm-mongodb-bridge/)
+[![Latest Unstable Version](https://poser.pugx.org/bengor-user/doctrine-odm-mongodb-bridge/v/unstable.svg)](https://packagist.org/packages/bengor-user/doctrine-odm-mongodb-bridge/)
 
 ##Requirements
 PHP >= 5.5
@@ -54,7 +54,7 @@ This library is created by:
 **@gorkalaucirica** - [gorka.lauzirika@gmail.com](mailto:gorka.lauzirika@gmail.com)
 
 ##Licensing Options
-[![License](https://poser.pugx.org/bengoruser/doctrine-odm-mongodb-bridge/license.svg)](https://github.com/BenGorUser/DoctrineODMMongoDBBridge/blob/master/LICENSE)
+[![License](https://poser.pugx.org/bengor-user/doctrine-odm-mongodb-bridge/license.svg)](https://github.com/BenGorUser/DoctrineODMMongoDBBridge/blob/master/LICENSE)
 
 [1]: http://www.phpspec.net/
 [2]: http://symfony.com/doc/current/contributing/code/index.html
