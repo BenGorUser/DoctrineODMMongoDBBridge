@@ -27,7 +27,7 @@ class UserTokenType extends StringType
      */
     public function convertToDatabaseValue($value)
     {
-        return $value->token();
+        return json_encode([$value->token(), $value->createdOn()]);
     }
 
     /**
@@ -35,7 +35,16 @@ class UserTokenType extends StringType
      */
     public function convertToPHPValue($value)
     {
-        return new UserToken($value);
+        list($token, $createdOn) = json_decode($value);
+
+        $return = new UserToken($token);
+
+        $reflectionClass = new \ReflectionClass($return);
+        $reflectionProperty = $reflectionClass->getProperty('createdOn');
+        $reflectionProperty->setAccessible(true);
+        $reflectionProperty->setValue($return, new \DateTimeImmutable($createdOn));
+
+        return $return;
     }
 
     /**
@@ -43,7 +52,7 @@ class UserTokenType extends StringType
      */
     public function closureToMongo()
     {
-        return '$return = $value->token();';
+        return '$return = json_encode([$value->token(), $value->createdOn()]);';
     }
 
     /**
@@ -51,6 +60,8 @@ class UserTokenType extends StringType
      */
     public function closureToPHP()
     {
-        return '$return = new \BenGorUser\User\Domain\Model\UserToken($value);';
+        return 'list($token, $createdOn) = json_decode($value);' .
+        '$return = new \BenGorUser\User\Domain\Model\UserToken($token);' .
+        '$reflectionClass = new \ReflectionClass($return);$reflectionProperty = $reflectionClass->getProperty("createdOn");$reflectionProperty->setAccessible(true);$reflectionProperty->setValue($return, new \DateTimeImmutable($createdOn));';
     }
 }
