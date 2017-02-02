@@ -18,6 +18,7 @@ use BenGorUser\User\Domain\Model\UserEmail;
 use BenGorUser\User\Domain\Model\UserId;
 use BenGorUser\User\Domain\Model\UserRepository;
 use BenGorUser\User\Domain\Model\UserToken;
+use Doctrine\MongoDB\CursorInterface;
 use Doctrine\MongoDB\Query\Builder;
 use Doctrine\MongoDB\Query\Query;
 use Doctrine\ODM\MongoDB\DocumentManager;
@@ -65,6 +66,19 @@ class DoctrineODMMongoDBUserRepositorySpec extends ObjectBehavior
         $documentPersister->load(['_id' => 'user-id'])->shouldBeCalled()->willReturn($user);
 
         $this->userOfId(new UserId('user-id'))->shouldReturn($user);
+    }
+
+    function it_get_all(
+        User $user,
+        UnitOfWork $unitOfWork,
+        DocumentPersister $documentPersister,
+        CursorInterface $cursor
+    ) {
+        $unitOfWork->getDocumentPersister(null)->shouldBeCalled()->willReturn($documentPersister);
+        $documentPersister->loadAll([], null, null, null)->shouldBeCalled()->willReturn($cursor);
+        $cursor->toArray(false)->shouldBeCalled()->willReturn([$user]);
+
+        $this->all()->shouldReturn([$user]);
     }
 
     function it_get_user_of_email(User $user, UnitOfWork $unitOfWork, DocumentPersister $documentPersister)

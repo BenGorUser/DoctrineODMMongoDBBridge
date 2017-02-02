@@ -38,6 +38,14 @@ final class DoctrineODMMongoDBUserRepository extends DocumentRepository implemen
     /**
      * {@inheritdoc}
      */
+    public function all()
+    {
+        return $this->findAll();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function userOfEmail(UserEmail $anEmail)
     {
         return $this->findOneBy(['email' => $anEmail->email()]);
