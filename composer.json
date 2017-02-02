@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^5.5 || ^7.0",
-        "bengor-user/user": "^0.6 || ^0.7 || ^0.8",
+        "bengor-user/user": "^0.8",
         "doctrine/mongodb-odm": "^1.0"
     },
     "require-dev": {
